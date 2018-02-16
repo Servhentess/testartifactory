@@ -46,6 +46,7 @@ pipeline{
         stage('Deploy artifact to Artifactory'){
             steps{
                 bat "mvn clean deploy"
+                echo "!!! DEPLOY OK !!!"
             }
         }
     }
