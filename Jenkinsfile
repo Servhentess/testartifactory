@@ -45,7 +45,7 @@ pipeline{
         stage('Deploy artifact to Artifactory'){
             steps{
                 script {
-                    buildInfo = rtMaven.run goals: 'clean install'
+                    buildInfo = rtMaven.run pom : 'pom.xml', goals: 'clean install'
                     rtMaven.deployer.deployArtifacts buildInfo
                 }
             }
