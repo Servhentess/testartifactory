@@ -37,9 +37,9 @@ pipeline{
             }*/
         }
 
-        stage('Code checking & Analysis'){
+        /*stage('Code checking & Analysis'){
 
-        }
+        }*/
 
         stage('Deploy artifact to Artifactory'){
             steps{
