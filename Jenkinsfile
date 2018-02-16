@@ -21,7 +21,9 @@ pipeline{
 
         stage('Artifactory'){
             steps{
-                def server = Artifactory.server 'Artifactory'
+                script{
+                    def server = Artifactory.server 'Artifactory'
+                }
             }
         }
 
