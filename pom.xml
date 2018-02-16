@@ -10,6 +10,8 @@
 
     <properties>
         <my.properties>not DevOps</my.properties>
+        <sonar.host.url>http://localhost:9000</sonar.host.url>
+        <sonar.login>387bf2bc083557da72dee6f9bb168e538359abd5</sonar.login>
     </properties>
 
     <dependencies>
