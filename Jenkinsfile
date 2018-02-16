@@ -22,14 +22,14 @@ pipeline{
         stage('Artifactory'){
             steps{
                 script{
-                    def server = Artifactory.server 'Artifactory'
+                    server = Artifactory.server 'Artifactory'
 
-                    def rtMaven = Artifactory.newMavenBuild()
+                    rtMaven = Artifactory.newMavenBuild()
                     rtMaven.tool = '3.5'
                     rtMaven.resolver server: server, releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot'
                     rtMaven.deployer server: server, releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local'
 
-                    def buildInfo = Artifactory.newBuildInfo()
+                    buildInfo = Artifactory.newBuildInfo()
                     buildInfo.env.capture = true
 
                 }
@@ -45,7 +45,7 @@ pipeline{
         stage('Deploy artifact to Artifactory'){
             steps{
                 script {
-                    buildInfo = rtMaven.run pom: 'maven-example/pom.xml', goals: 'clean install'
+                    buildInfo = rtMaven.run goals: 'clean install'
                     rtMaven.deployer.deployArtifacts buildInfo
                 }
             }
