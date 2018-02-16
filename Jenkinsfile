@@ -37,7 +37,9 @@ pipeline{
         }
 
         stage('Code checking & Analysis'){
-            bat 'mvn clean sonar:sonar'
+            steps {
+                bat 'mvn clean sonar:sonar'
+            }
         }
 
         stage('Deploy artifact to Artifactory'){
