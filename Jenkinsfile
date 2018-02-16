@@ -28,6 +28,7 @@ pipeline{
         stage('Maven Package'){
             steps{
                 bat "mvn clean package"
+                bat "echo !!! PACKAGE OK !!!"
             }
             /*post{
                 always{
