@@ -27,8 +27,8 @@ pipeline{
 
         stage('Maven Package'){
             steps{
-                bat "mvn clean package"
-                bat "echo !!! PACKAGE OK !!!"
+                sh "mvn clean package"
+                sh "echo !!! PACKAGE OK !!!"
             }
             /*post{
                 always{
@@ -43,7 +43,7 @@ pipeline{
 
         stage('Deploy artifact to Artifactory'){
             steps{
-                bat "mvn clean deploy"
+                sh "mvn clean deploy"
             }
         }
     }
