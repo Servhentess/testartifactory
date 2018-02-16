@@ -11,7 +11,7 @@ public class Main {
         try {
             prop.load(Main.class.getClassLoader().getResourceAsStream("config.properties"));
         }catch (Exception e){
-            e.printStackTrace();
+
         }
         String maV = StringUtils.upperCase(prop.getProperty("devops.config"));
         System.out.println("Hello I'm " + maV);
